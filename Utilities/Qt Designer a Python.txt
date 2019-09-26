@@ -1,0 +1,1 @@
+pyuic5.exe -x *nombre del archivo .ui* -o *nombre archivo .py*
