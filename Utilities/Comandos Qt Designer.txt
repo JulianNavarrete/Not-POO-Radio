@@ -1,0 +1,16 @@
+
+Comandos para instalar PyQt5 (desde cmd como administrador, no hace falta Power Shell):
+
+("pip3" si tenemos python 2 y 3 ambos instalados)
+
+pip install PyQt5
+
+pip install PyQt5-tools
+
+
+Para pasar de Qt Designer a archivo .py:
+
+pyuic5.exe -x *nombre del archivo .ui* -o *nombre archivo .py*
+
+
+pyuic5.exe -x ui_login_designer.ui -o UI_Login.py

@@ -1,0 +1,6 @@
+1. Truckers FM
+https://radio.truckers.fm/ 
+2. Simulator Radio
+http://stream.simulatorradio.com:8002/stream.mp3
+3. TruckSim FM
+http://radio.trucksim.fm:8000/stream
