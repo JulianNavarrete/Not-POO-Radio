@@ -1,133 +1,143 @@
 import vlc
 import time
 
-cont = False
+exitProgram = False
+exitMenu = False
 methodCalled = False
 
+#Segunda opción
 def showRadios():
     radios = open("links.txt", "r")
     numLines = 0
     print("\nEmisoras disponibles:")
     for line in radios:
-        numLines = numLines + 1
+        numLines += 1
         if numLines % 2:
             print("\t", line.strip("\n"))
-    global methodCalled
-    methodCalled = True
+    print("\n".strip("\n"))
     radios.close()
 
+#Tercera opción
 def showDetailedRadios():
     lines = []
-    counter = 0
-    radios = open('links.txt', 'rt')
+    radios = open("links.txt", "r")
     print("\n".strip("\n"))
     print("Emisoras disponibles:\n")
     for line in radios:
         lines.append(line.strip("\n"))
         print("\t", line.strip("\n"))
+    print("\n".strip("\n"))
+    radios.close()
 
+#Primera opción
 def selectRadio():
     index = 0
     indexReproduction = 0
     lines = []
-    radios = open('links.txt', 'rt')
+    radios = open("links.txt", "r")
+    showRadios()
     for line in radios:
         lines.append(line.strip("\n"))
-    if methodCalled == True:
-        numSelectRadio = int(input("Seleccione que emisora desea escuchar: " ))
-    else:
-        numSelectRadio = int(input("\nSeleccione que emisora desea escuchar: "))
+    numSelectRadio = int(input("Seleccione la emisora desea escuchar: "))
     index = (numSelectRadio * 2) - 1
     indexReproduction = index - 1
     Instance = vlc.Instance()
     player = Instance.media_player_new()
     Media = Instance.media_new(lines[index])
-    print("\nReproduciendo:", lines[indexReproduction][3:])
-    #print(lines[index])
+    print("\nReproduciendo:", lines[indexReproduction][3:], "\n")
     Media.get_mrl()
     player.set_media(Media)
     player.play()
-    player.audio_set_volume(60)
-    time.sleep(999999)
-    radios.close()
+    player.audio_set_volume(80)
+    #time.sleep(1)
+    userStop = input("Para detener la reproducción ingrese la letra q: ")
+    if userStop == "q":
+        exit()
+        exitProgram = True
+        radios.close()
+    #radios.close()
 
+#Cuarta opción
 def addRadio():
     radios = open("links.txt", "a")
     nameLink = []
-    posicionNewRadio = 0
-    link = ""
     nameLink.append(str(input("Para agregar una nueva emisora, ingrese el índice numérico,\n"
                               "luego un punto, un espacio y a continuación el nombre de la emisora: ")))
     nameLink.append(str("\n"))
-    link = str(input("Ahora ingrese el link de la emisora: "))
-
-    nameLink.
-    #for x in range(len(nameLink)):
-        #nameLink
+    nameLink.append(input("Ahora ingrese el link de la emisora: ")[:-1])
     radios.writelines(nameLink)
-    #radios.writelines("".strip(" "))
     radios.writelines("\n")
     radios.close()
     print("Su emisora se ha agregado con éxito.")
 
+#Quinta opción
 def deleteRadio():
     radios = open("links.txt", "r")
     chainRadios = []
-    c = 0
-    d = 0
+    index1 = 0
+    index2 = 0
     print("\nRadios disponibles:")
     for line in radios:
-        c = c + 1
+        index1 += 1
         chainRadios.append(line.strip("\n"))
-        if c % 2:
+        if index1 % 2:
             print("\t", line.strip("\n"))
-    #print("Esto es chainRadios:", chainRadios)
     askDelete = int(input("Elija el índice de la emisora que desea eliminar: "))
     deleteIndex = ((askDelete * 2) - 1)
     radios.close()
     radiosReopen = open("links.txt", "w")
-    #print("deleteIndex:", deleteIndex)
     chainRadios.pop(deleteIndex)
     chainRadios.pop(deleteIndex - 1)
-    #print("Esto es chainRadios final:", chainRadios)
-    for z in chainRadios:
-        d = d + 1
-        # if d == 1:
-        # print("¿Está seguro de que desea eliminar esta emisora?")
-        # deleteDesicion = int(input("Presione 0 para cancelar ó 1 para continuar: "))
-        # pass
-        radiosReopen.write(chainRadios[d - 1])
-        radiosReopen.write("\n")
-    radiosReopen.write("\n".strip("\n"))
-    print("Radio borrada con éxto.")
+    deleteDesicion = input("¿Está seguro de que desea eliminar esta emisora?\n"
+                           "Para confirmar la desición escriba SI en mayúsculas: ")
+    if deleteDesicion == "SI":
+        for z in chainRadios:
+            index2 += 1
+            radiosReopen.write(chainRadios[index2 - 1])
+            radiosReopen.write("\n")
+        radiosReopen.write("\n".strip("\n"))
+        print("Radio borrada con éxto.")
+    else:
+        print("\nOperación cancelada.")
     radios.close()
 
-print("Bienvenido a Radio Streamer\nSeleccione una acción:")
+print("Bienvenido a Radio Streamer")
 
-while cont == False:
-    try:
-        numMenu = int(input("\t1. Mostrar lista de emisoras\n\t2. Mostrar lista detallada de emisoras\n"
-                            "\t3. Agregar emisora\n\t4. Eliminar emisora\nSu elección: "))
-        cont = True
-        if numMenu == 1:
-            showRadios()
-            selectRadio()
+while exitProgram == False:
 
-        elif numMenu == 2:
-            showDetailedRadios()
-            selectRadio()
+    while exitMenu == False:
+        try:
+            print("Seleccione una acción:")
+            numMenu = int(input("\t1. Elegir emisora\n\t2. Mostrar lista de emisoras\n"
+                                "\t3. Mostrar lista de emisoras detallada, con sus links\n"
+                                "\t4. Agregar emisora\n\t5. Eliminar emisora\n\t6. Salir del programa\n"
+                                "Su elección: "))
+            #conditionEnterMenu = True
+            if numMenu == 1:
+                selectRadio()
 
-        elif numMenu == 3:
-            addRadio()
+            elif numMenu == 2:
+                showRadios()
 
-        elif numMenu == 4:
-            deleteRadio()
+            elif numMenu == 3:
+                showDetailedRadios()
 
-        else:
-            print("\nError, opción no existente\nElija una opción válida: ")
-            cont = False
+            elif numMenu == 4:
+                addRadio()
 
-    except:
-        #print("\nError, opción no existente\nElija una opción válida: ")
-        #cont = False
-        pass
+            elif numMenu == 5:
+                deleteRadio()
+
+            elif numMenu == 6:
+                exitProgram = True
+                exitMenu = True
+                print("\nPrograma cerrado con éxito, ¡Hasta luego!")
+
+            else:
+                print("\nError, opción no existente. Por favor elija una opción válida.")
+                exitMenu = False
+
+        except:
+            print("\nError, opción no existente. Por favor elija una opción válida.")
+            exitMenu = False
+            pass

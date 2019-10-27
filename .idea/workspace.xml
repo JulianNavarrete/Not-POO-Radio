@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b080f9-58fa-4aa8-b320-4d6c5bab2f95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UI_Login(con_anotaciones).py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Consola/Para Mati-kun.rar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/Qt Designer a Python.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/Qt Designer a Python.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui_login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui_login_designer.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui_login_designer.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Consola/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Consola/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Consola/links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Consola/links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Consola/prueba.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Consola/prueba.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Test 2">
+  <component name="RunManager" selected="Python.Main">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python">
       <module name="The Big One" />
       <option name="INTERPRETER_OPTIONS" value="" />
