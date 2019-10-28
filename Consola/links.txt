@@ -1,10 +1,22 @@
 1. Truckers FM
+<<<<<<< HEAD
 https://radio.truckers.fm/
+=======
+https://radio.truckers.fm/ 
+>>>>>>> 37c7593b034ed207409bb392da6ed1806802605a
 2. Simulator Radio
 http://stream.simulatorradio.com:8002/stream.mp3
 3. TruckSim FM
 http://radio.trucksim.fm:8000/stream
+<<<<<<< HEAD
 4. Big Rig FM
 https://radio.bigrig.fm/
+=======
+<<<<<<< HEAD
+>>>>>>> fbca290d52f13538fb5ffbcc5e22993c7a31da5f
 5. Adore Jazz Radio
 http://185.33.21.112:11025
+=======
+4. Big Rig FM
+https://radio.bigrig.fm/
+>>>>>>> 37c7593b034ed207409bb392da6ed1806802605a
